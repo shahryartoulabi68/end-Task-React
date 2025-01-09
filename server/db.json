@@ -1,0 +1,83 @@
+{
+  "category": [
+    {
+      "id": "ec42",
+      "title": "خوراکی ",
+      "description": "مواد غذایی",
+      "createdAt": "2025-01-06T11:50:04.320Z"
+    },
+    {
+      "id": "faa9",
+      "title": "پوشاک",
+      "description": "انواع پوشاک مردانه و زنانه",
+      "createdAt": "2025-01-06T11:54:35.732Z"
+    },
+    {
+      "id": "e7d5",
+      "title": "آشپزخانه",
+      "description": "تمام لوازم اشپزخانه",
+      "createdAt": "2025-01-06T12:19:25.494Z"
+    },
+    {
+      "id": "ef9b",
+      "title": "آموزش",
+      "description": "کتاب های اموزشی",
+      "createdAt": "2025-01-07T10:25:26.880Z"
+    },
+    {
+      "id": "b8a3",
+      "title": "دیجیتال",
+      "description": "محصولات برقی",
+      "createdAt": "2025-01-07T10:27:46.969Z"
+    },
+    {
+      "title": "تزئینات منزل",
+      "description": "ایاللللللل",
+      "createdAt": "2025-01-08T20:18:39.147Z",
+      "id": "1d5j9FS"
+    },
+    {
+      "title": "برقی",
+      "description": "سسسسسسسسسسسسسسسسسسسسسسسس",
+      "createdAt": "2025-01-08T20:19:13.606Z",
+      "id": "bnXww-i"
+    }
+  ],
+  "product": [
+    {
+      "id": "25f3",
+      "title": "کفش مردانه",
+      "quntity": "56",
+      "category": "faa9",
+      "createdAt": "2025-01-09T11:35:17.657Z"
+    },
+    {
+      "id": "9514",
+      "title": "کتاب  کمک درسی",
+      "quntity": "16",
+      "category": "ef9b",
+      "createdAt": "2025-01-09T20:09:01.563Z"
+    },
+    {
+      "title": "تبلت بزرگ",
+      "quntity": "90",
+      "category": "b8a3",
+      "createdAt": "2025-01-09T20:08:45.451Z",
+      "id": "J4QftTj"
+    },
+    {
+      "title": "یخچال",
+      "quntity": "2",
+      "category": "bnXww-i",
+      "createdAt": "2025-01-09T13:07:06.520Z",
+      "id": "knB1Urb"
+    },
+    {
+      "title": "کاپشن",
+      "quntity": "5",
+      "category": "faa9",
+      "createdAt": "2025-01-09T13:07:30.657Z",
+      "id": "kbn1ApR"
+    }
+  ]
+}
