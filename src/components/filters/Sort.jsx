@@ -2,11 +2,11 @@ import Select from '../../Ui/Select'
 
 const options = [
     {
-        label: "مرتپ سازی صعودی",
+        label: "مرتب سازی صعودی",
         value: "asc"
     },
     {
-        label: "مرتپ سازی نزولی",
+        label: "مرتب سازی نزولی",
         value: "desc"
     }
 ]

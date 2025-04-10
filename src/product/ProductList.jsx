@@ -1,9 +1,6 @@
-import { LoaderIcon } from 'react-hot-toast';
 import SingelProduct from './SingelProduct';
-import Loading from '../Ui/Loading';
 
-function ProductList({ products = {}, isLoading }) {
-    if (isLoading) return <Loading />
+function ProductList({ products = [] }) {
     if (!products.length) return <p>محصولی وجود ندارد</p>
 
     return (

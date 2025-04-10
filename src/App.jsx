@@ -12,7 +12,7 @@ function App() {
     < DarkModeProvider>
       <div className='flex flex-col container'>
         <Header />
-        <div className='container flex items-center  gap-4 h-screen'>
+        <div className='container  grid grid-cols-4  gap-4 h-screen'>
           <QueryClientProvider client={queryClient}>
             <Toaster />
             <ComponentA />
