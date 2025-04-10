@@ -7,11 +7,16 @@ import toast from 'react-hot-toast'
 import useGetCategory from '../category/useGetCategory'
 import { stringify } from 'postcss'
 import useEditProduct from './useEditProduot'
+import useLocalStorage from '../Hooks/useLocalStorage'
 
 function NewProduct({ item = {}, category = {}, onClose }) {
+    const [categories, setCategories] = useLocalStorage("categoryWar", [])
+    const [products, setProducts] = useLocalStorage("products", [])
+
     const { id: editId } = item
     const isEditId = Boolean(editId)
     const { title, quntity } = item
+
 
     const { editProduct, isPending: isloading } = useEditProduct()
 
@@ -25,10 +30,10 @@ function NewProduct({ item = {}, category = {}, onClose }) {
     }
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues: editValues })
-    const { categories = {}, isLoading } = useGetCategory()
+    // const { categories = {}, isLoading } = useGetCategory()
     const { createProduct, isPending } = useCreatedProduct()
     if (!categories.length) return <p>دسته بندی وجود ندارد</p>
-    console.log(categories);
+
 
     const onSubmit = (data) => {
         const newProduct = {
@@ -47,11 +52,18 @@ function NewProduct({ item = {}, category = {}, onClose }) {
         }
 
         else {
-            createProduct(newProduct, {
-                onSuccess: () => {
-                    reset()
-                }
-            })
+            // createProduct(newProduct, {
+            //     onSuccess: () => {
+            //         reset()
+            //     }
+            // })
+            try {
+                setProducts((p) => [...p, newProduct])
+                toast.success(`${newProduct.title} به انبار اضافه شد`)
+                reset();
+            } catch (error) {
+                toast.error(error)
+            }
         }
 
     }
