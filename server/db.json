@@ -52,32 +52,11 @@
       "createdAt": "2025-01-09T11:35:17.657Z"
     },
     {
-      "id": "9514",
-      "title": "کتاب  کمک درسی",
-      "quntity": "16",
-      "category": "ef9b",
-      "createdAt": "2025-01-09T20:09:01.563Z"
-    },
-    {
-      "title": "تبلت بزرگ",
-      "quntity": "90",
-      "category": "b8a3",
-      "createdAt": "2025-01-09T20:08:45.451Z",
-      "id": "J4QftTj"
-    },
-    {
       "title": "یخچال",
       "quntity": "2",
       "category": "bnXww-i",
       "createdAt": "2025-01-09T13:07:06.520Z",
       "id": "knB1Urb"
-    },
-    {
-      "title": "کاپشن",
-      "quntity": "5",
-      "category": "faa9",
-      "createdAt": "2025-01-09T13:07:30.657Z",
-      "id": "kbn1ApR"
     }
   ]
 }

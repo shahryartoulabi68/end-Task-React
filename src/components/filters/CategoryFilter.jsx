@@ -1,12 +1,12 @@
 import React from 'react'
-import useGetCategory from '../../category/useGetCategory'
+import useLocalStorage from '../../Hooks/useLocalStorage'
 
 function CategoryFilter({ onChangeCategory, categoryValue }) {
-    const { categories, isLoading } = useGetCategory()
-    if (isLoading) return <p>در حال بار گذاری...</p>
+    const [categories, setCategories] = useLocalStorage("categoryWar", [])
+
     const options = [
         {
-            id:"",
+            id: "",
             title: "دسته بندی (همه)"
         },
         ...categories

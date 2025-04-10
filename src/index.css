@@ -4,6 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
   :root {
 
@@ -58,30 +59,41 @@
 
 @layer components {
   .textFiled__input {
-   @apply w-2/5  py-4 px-3 border border-gray-300  rounded-xl outline-none text-secondary-900 hover:border-primary-300 focus:shadow-lg shadow-lg
+    @apply w-2/5 py-2 px-3 border border-gray-300 rounded-xl outline-none text-secondary-900 hover:border-primary-300 focus:shadow-lg shadow-lg
   }
-  .btn{
-    @apply px-3 py-1 rounded-lg transition-all duration-300 font-bold
+
+  .btn {
+    @apply whitespace-nowrap px-4 py-2 rounded-lg transition-all duration-300 font-bold
   }
-  .btn--primary{
-    @apply px-4 py-3 bg-primary-900 text-secondary-100 hover:bg-primary-800 shadow-md  shadow-primary-100 
+
+  .btn--primary {
+    @apply bg-primary-900 text-secondary-100 hover:bg-primary-800 shadow-md shadow-primary-100
   }
-  .badge{
-    @apply px-2  rounded-xl 
+
+  .btn--secondary {
+    @apply border border-secondary-700  text-secondary-700 
   }
-  .badge--danger{
+
+  .badge {
+    @apply px-2 rounded-xl
+  }
+
+  .badge--danger {
     @apply bg-error text-white
   }
-  .badge--success{
+
+  .badge--success {
     @apply bg-success text-white
   }
-  .badge--secondary{
+
+  .badge--secondary {
     @apply bg-secondary-400 text-white
   }
-  .icon{
-    @apply w-4 h-4  cursor-pointer
+
+  .icon {
+    @apply w-4 h-4 cursor-pointer
   }
-  
+
 }
 
 body {

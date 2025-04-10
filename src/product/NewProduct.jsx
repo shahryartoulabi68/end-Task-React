@@ -4,9 +4,6 @@ import { useForm } from 'react-hook-form'
 import RHFselect from '../Ui/RHFselect'
 import useCreatedProduct from './useCreatedProduct'
 import toast from 'react-hot-toast'
-import useGetCategory from '../category/useGetCategory'
-import { stringify } from 'postcss'
-import useEditProduct from './useEditProduot'
 import useLocalStorage from '../Hooks/useLocalStorage'
 
 function NewProduct({ item = {}, category = {}, onClose }) {
@@ -16,9 +13,6 @@ function NewProduct({ item = {}, category = {}, onClose }) {
     const { id: editId } = item
     const isEditId = Boolean(editId)
     const { title, quntity } = item
-
-
-    const { editProduct, isPending: isloading } = useEditProduct()
 
     let editValues = {}
     if (isEditId) {
@@ -30,40 +24,34 @@ function NewProduct({ item = {}, category = {}, onClose }) {
     }
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues: editValues })
-    // const { categories = {}, isLoading } = useGetCategory()
     const { createProduct, isPending } = useCreatedProduct()
     if (!categories.length) return <p>دسته بندی وجود ندارد</p>
 
 
     const onSubmit = (data) => {
         const newProduct = {
-            id: new Date().getTime,
+            id: new Date().getTime(),
             ...data,
             createdAt: new Date().toISOString()
         }
 
         if (isEditId) {
-            editProduct({ id: item.id, newProduct }, {
-                onSuccess: () => {
-                    onClose();
-                    reset();
-                }
-            })
-        }
+          
 
+            setProducts(prevItems =>
+                prevItems.map(p =>
+                    p.id === item.id ? { id: item.id, createdAt: item.createdAt, ...data } : p
+                )
+            );
+            // toast.success(`ویرایش شد`)
+            window.location.reload();
+            // onClose()
+        }
         else {
-            // createProduct(newProduct, {
-            //     onSuccess: () => {
-            //         reset()
-            //     }
-            // })
-            try {
-                setProducts((p) => [...p, newProduct])
-                toast.success(`${newProduct.title} به انبار اضافه شد`)
-                reset();
-            } catch (error) {
-                toast.error(error)
-            }
+            setProducts((p) => [...p, newProduct])
+            toast.success(`${newProduct.title} به انبار اضافه شد`)
+            reset();
+            window.location.reload();
         }
 
     }
@@ -109,8 +97,8 @@ function NewProduct({ item = {}, category = {}, onClose }) {
                 />
                 <RHFselect label="دسته بندی" register={register} required name="category" options={categories} />
                 <div className='flex mt-8 gap-x-8'>
-                    <button className='btn text-white btn--primary flex-1'>اضافه کردن محصول</button>
-                    <button onClick={onClose} type='onsubmit' className='btn border border-secondary-700 px-4 text-secondary-700 py-3  flex-1'>لغو</button>
+                    <button className='btn btn--primary flex-1'>اضافه کردن محصول</button>
+                    <button onClick={onClose} type='onsubmit' className='btn btn--secondary flex-1'>لغو</button>
                 </div>
             </form>
         </div >

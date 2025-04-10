@@ -1,21 +1,28 @@
 import React, { useState } from 'react'
 import { HiOutlinePencil, HiOutlineTrash } from 'react-icons/hi'
-import useGetCategory from '../category/useGetCategory'
-import useDeleteProduct from './useDeleteProduct'
 import Modal from '../Ui/Modal'
 import NewProduct from './NewProduct'
 import { usePersianNumber } from '../Utils/persianNumber'
+import useLocalStorage from '../Hooks/useLocalStorage'
+import toast from 'react-hot-toast'
 
 
 function SingelProduct({ item }) {
+
     const [openDelete, setOpenDelete] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
-    const { categories } = useGetCategory()
-    const category = categories.find((c) => c.id === item.category)
-    const { deleteProduct, isPending } = useDeleteProduct();
+    const [categories, setCategories] = useLocalStorage("categoryWar", [])
+    const [products, setProducts] = useLocalStorage("products", [])
+    const category = categories.find((c) => c.id === +(item.category))
+
+
+
 
     const handelDelete = (_id) => {
-        deleteProduct(_id)
+        setProducts(products.filter((p) => p.id !== _id))
+        window.location.reload();
+        toast.success(`${products.find((p) => p.id === _id).title} از انبار حذف شد`)
+        setOpenDelete(false)
     }
 
     return (
@@ -23,9 +30,9 @@ function SingelProduct({ item }) {
             <span className='text-sm'>{item.title}</span>
             <div className='flex items-center gap-x-2 text-sm'>
                 <span >{new Date(item.createdAt).toLocaleDateString("fa")}</span>
-                <span className='border p-1 rounded-xl border-secondary-400'>{category.title}</span>
+                <span className='border p-1 rounded-xl border-secondary-400'>{category?.title}</span>
                 <span className='border w-6 h-6 flex items-center justify-center p-3 rounded-full 
-                border-secondary-400'>{usePersianNumber(item.quntity)}</span>
+                border-secondary-400'>{usePersianNumber(item?.quntity)}</span>
                 <button onClick={() => setOpenEdit(true)}>
                     <HiOutlinePencil className='icon text-success ' />
                 </button>
