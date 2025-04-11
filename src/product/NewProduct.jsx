@@ -36,16 +36,14 @@ function NewProduct({ item = {}, category = {}, onClose }) {
         }
 
         if (isEditId) {
-          
+
 
             setProducts(prevItems =>
                 prevItems.map(p =>
                     p.id === item.id ? { id: item.id, createdAt: item.createdAt, ...data } : p
                 )
             );
-            // toast.success(`ویرایش شد`)
             window.location.reload();
-            // onClose()
         }
         else {
             setProducts((p) => [...p, newProduct])
@@ -58,7 +56,9 @@ function NewProduct({ item = {}, category = {}, onClose }) {
 
     return (
         <div className='mb-2'>
-            <h2 className='text-secondary-700 font-bold text-sm'>اضافه کردن محصول جدید</h2>
+            <h2 className='text-secondary-700 font-bold text-sm'>{
+                isEditId ? `ویرایش ${item.title}` : "اضافه کردن محصول جدید"
+            }</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <TextField
                     label="عنوان محصول"
@@ -97,7 +97,9 @@ function NewProduct({ item = {}, category = {}, onClose }) {
                 />
                 <RHFselect label="دسته بندی" register={register} required name="category" options={categories} />
                 <div className='flex mt-8 gap-x-8'>
-                    <button className='btn btn--primary flex-1'>اضافه کردن محصول</button>
+                    <button className='btn btn--primary flex-1'>{
+                        isEditId ? `ویرایش ` : "اضافه کردن"
+                    }</button>
                     <button onClick={onClose} type='onsubmit' className='btn btn--secondary flex-1'>لغو</button>
                 </div>
             </form>

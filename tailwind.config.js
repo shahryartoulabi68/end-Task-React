@@ -48,7 +48,7 @@ export default {
       },
       container: {
         center: true,
-        padding: "1rem",
+        padding: ".5rem",
       },
       fontFamily: {
         sans: ["Vazir", ...fontFamily.sans]

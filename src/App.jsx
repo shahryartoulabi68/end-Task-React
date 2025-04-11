@@ -10,9 +10,9 @@ const queryClient = new QueryClient()
 function App() {
   return (
     < DarkModeProvider>
-      <div className='flex flex-col container'>
+      <div className='flex flex-col'>
         <Header />
-        <div className='container  grid grid-cols-4  gap-4 h-screen'>
+        <div className='container  grid grid-cols-4 grid-rows-[auto_1fr] gap-4 h-screen'>
           <QueryClientProvider client={queryClient}>
             <Toaster />
             <ComponentA />
