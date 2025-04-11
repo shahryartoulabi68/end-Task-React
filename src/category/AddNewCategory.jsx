@@ -1,15 +1,11 @@
 import React from 'react'
 import TextField from '../Ui/TextField'
 import { useForm } from "react-hook-form"
-import useCreatedCategory from './useCreatedCategory'
-import axios from 'axios'
 import useLocalStorage from '../Hooks/useLocalStorage'
 import toast from 'react-hot-toast'
 
 
 function AddNewCategory({ onClose }) {
-
-    // const { isPending, mutate } = useCreatedCategory()
     const [categories, setCategories] = useLocalStorage("categoryWar", [])
     const { register, formState: { errors }, handleSubmit } = useForm()
 

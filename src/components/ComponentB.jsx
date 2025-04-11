@@ -35,13 +35,15 @@ function ComponentB() {
 
     return (
         <div className='col-span-4 md:col-span-2 text-secondary-700'>
-            <h2 className='border-b p-4 mb-4 border-secondary-500 text-lg '>فیلترها</h2>
+            <h2 className='hidden md:block border-b p-4 mb-4 border-secondary-500 text-lg '>فیلترها</h2>
             <Filters >
-                <Search search={search} onSubmit={(e) => setSearch(e.target.value)} />
-                <Sort sortValue={sortValue} onChangeHandle={(e) => setSortValue(e.target.value)} />
-                <CategoryFilter categoryValue={categoryValue}
-                    onChangeCategory={(e) => setCategoryValue(e.target.value)}
-                />
+                <Search search={search} handleChange={(e) => setSearch(e.target.value)} />
+                <div className='flex md:flex-col  gap-x-2'>
+                    <Sort sortValue={sortValue} onChangeHandle={(e) => setSortValue(e.target.value)} />
+                    <CategoryFilter categoryValue={categoryValue}
+                        onChangeCategory={(e) => setCategoryValue(e.target.value)}
+                    />
+                </div>
             </Filters>
             <ProductList products={resoult} />
         </div>
