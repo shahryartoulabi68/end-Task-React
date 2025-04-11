@@ -7,10 +7,10 @@ function ShowModalCategory() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div className='order-2 w-full md:mb-4'>
+        <div className='order-2 w-full md:mb-4  flex justify-end md:justify-start'>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className='flex items-center gap-x-1'>
+                className='flex items-center gap-x-1 text-secondary-900'>
                 <FaPlusCircle className='text-primary-700' />
                 دسته بندی جدید
             </button>

@@ -18,11 +18,11 @@ function ShowModalAddProduct() {
     }, []);
 
     return (
-        <div className=' w-full md:order-2'>
+        <div className=' w-full md:order-2 '>
             {isMobile ? <>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className='flex items-center gap-x-1'>
+                    className='flex items-center gap-x-1 text-secondary-900'>
                     <FaPlusCircle className='text-primary-700' />
                     اضافه کردن به انبار
                 </button>
